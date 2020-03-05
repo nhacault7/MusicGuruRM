@@ -5,21 +5,23 @@
  */
 package ui;
 
+import java.awt.Color;
+
 /**
  *
  * @author n.hacault
  */
 public class MainUI extends javax.swing.JFrame {
 
-    private mainUIController controller;
+    private MainUIController controller;
     
     /**
      * Creates new form MainUI
      */
     public MainUI() {
         initComponents();
-        controller = new mainUIController(lblSheet, btnRestart, 
-                tglPlayback, btnSelect, btnClear, this);
+        controller = new MainUIController(lblSheet, btnRestart, 
+                tglPlayback, btnSelect, btnClear, tglVolume, sldVolume, this);
     }
 
     /**
@@ -31,37 +33,24 @@ public class MainUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblSheet = new javax.swing.JLabel();
-        tglPlayback = new javax.swing.JToggleButton();
-        btnRestart = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         btnSelect = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        lblPageNum = new javax.swing.JLabel();
+        btnPageBack = new javax.swing.JButton();
+        tglPlayback = new javax.swing.JToggleButton();
+        lblSheet = new javax.swing.JLabel();
+        btnPageForward = new javax.swing.JButton();
+        btnRestart = new javax.swing.JButton();
+        sldVolume = new javax.swing.JSlider();
+        tglVolume = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        lblSheet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblSheet.setText("Sheet Here");
-        lblSheet.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-
-        tglPlayback.setText("▶");
-        tglPlayback.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tglPlaybackActionPerformed(evt);
-            }
-        });
-
-        btnRestart.setText("BTB");
-        btnRestart.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRestartActionPerformed(evt);
-            }
-        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Selection Controls", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Gadugi", 1, 14))); // NOI18N
 
         btnSelect.setText("Select Sheet");
-        btnSelect.setActionCommand("Select Sheet");
         btnSelect.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelectActionPerformed(evt);
@@ -97,36 +86,113 @@ public class MainUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        lblPageNum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPageNum.setText(" 0/0 ");
+        lblPageNum.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        lblPageNum.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnPageBack.setText("<");
+        btnPageBack.setEnabled(false);
+        btnPageBack.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        tglPlayback.setText("▶");
+        tglPlayback.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tglPlaybackActionPerformed(evt);
+            }
+        });
+
+        lblSheet.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSheet.setText("Sheet Here");
+        lblSheet.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        btnPageForward.setText(">");
+        btnPageForward.setEnabled(false);
+        btnPageForward.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        btnRestart.setText("⏮️");
+        btnRestart.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnRestart.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestartActionPerformed(evt);
+            }
+        });
+
+        tglVolume.setText("🔊");
+        tglVolume.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tglVolumeActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(192, 192, 192)
+                        .addComponent(btnPageBack)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblPageNum)
+                        .addGap(13, 13, 13)
+                        .addComponent(btnPageForward))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(lblSheet, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnRestart, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tglPlayback)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tglVolume)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sldVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(158, 158, 158))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tglPlayback)
+                    .addComponent(btnRestart)
+                    .addComponent(tglVolume)
+                    .addComponent(sldVolume, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblSheet, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnPageForward)
+                    .addComponent(btnPageBack)
+                    .addComponent(lblPageNum, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(88, 88, 88)
-                        .addComponent(lblSheet, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(388, 388, 388)
-                        .addComponent(btnRestart)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tglPlayback)))
-                .addContainerGap(248, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tglPlayback)
-                    .addComponent(btnRestart))
-                .addGap(18, 18, 18)
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblSheet, javax.swing.GroupLayout.PREFERRED_SIZE, 695, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -148,12 +214,22 @@ public class MainUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnClearActionPerformed
 
+    private void tglVolumeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tglVolumeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tglVolumeActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClear;
+    private javax.swing.JButton btnPageBack;
+    private javax.swing.JButton btnPageForward;
     private javax.swing.JButton btnRestart;
     private javax.swing.JButton btnSelect;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel lblPageNum;
     private javax.swing.JLabel lblSheet;
+    private javax.swing.JSlider sldVolume;
     private javax.swing.JToggleButton tglPlayback;
+    private javax.swing.JToggleButton tglVolume;
     // End of variables declaration//GEN-END:variables
 }
